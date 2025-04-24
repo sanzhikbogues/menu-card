@@ -1,62 +1,71 @@
-export interface AuthToken {
+// Authentication Token Interface
+export interface IAuthToken {
     access: string;
-};
-
-export interface SignUpToken {
+  }
+  
+  // User Registration Interface
+  export interface ISignUpToken {
     username: string;
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
     password: string;
     email: string;
-};
-
-export enum RecipeCategory {
-    salad = "Salad", 
-    burger = "Burger", 
-    italian = "Italian", 
-    soup = "Soup", 
-    meat = "Meat", 
-};
-
-export interface ICategoriesList {
+  }
+  
+  // Recipe Categories Enum
+  export enum RecipeCategory {
+    Salad = 'SALAD',
+    Burger = 'BURGER',
+    Italian = 'ITALIAN',
+    Soup = 'SOUP',
+    Meat = 'MEAT',
+  }
+  
+  // Category List Interface
+  export interface ICategoryListItem {
     id: number;
     category: RecipeCategory;
-}
-
-export const CategoriesList: ICategoriesList[] = [
-    { id: 1, category: RecipeCategory.salad },
-    { id: 2, category: RecipeCategory.burger },
-    { id: 3, category: RecipeCategory.italian },
-    { id: 4, category: RecipeCategory.soup },
-    { id: 5, category: RecipeCategory.meat },
-];
-
-export interface ICategory {
+  }
+  
+  // Predefined Categories List
+  export const CategoriesList: ICategoryListItem[] = [
+    { id: 1, category: RecipeCategory.Salad },
+    { id: 2, category: RecipeCategory.Burger },
+    { id: 3, category: RecipeCategory.Italian },
+    { id: 4, category: RecipeCategory.Soup },
+    { id: 5, category: RecipeCategory.Meat },
+  ];
+  
+  // Category Interface
+  export interface ICategory {
     id: number;
-    category_id: number;
-    imgURL: string;
+    categoryId: number;
+    imageUrl: string;
     title: string;
     category: RecipeCategory;
-};
-
-export interface IRecipe {
+  }
+  
+  // Recipe Interface
+  export interface IRecipe {
     id: number;
-    category_id: number;
+    categoryId: number;
     name: string;
-    image: string;
+    imageUrl: string;
     description: string;
     steps: string;
-};
-
-export interface IMasterClass {
+  }
+  
+  // Master Class Interface
+  export interface IMasterClass {
     id: number;
     name: string;
-    date: string;
-    duration: number;
+    date: string; // Consider using Date type if applicable
+    duration: number; // Duration in minutes
     location: string;
-    description: string,
-    image: string;
-    price: number,
-    maxAttendees: number,
-    attendees: string[],
-}
+    description: string;
+    imageUrl: string;
+    price: number;
+    maxAttendees: number;
+    attendees: string[]; // Array of attendee identifiers
+  }
+  
